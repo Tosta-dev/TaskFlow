@@ -10,7 +10,6 @@ public class Main {
         System.out.println("Somos uma aplicação para o gerenciamento de tarefas!");
         System.out.println("- - - - - - - - - - - - - - - - - - - -");
         Ferramenta.pause(scanner);
-        int contador = 0;
 
         Gerenciador gerenciador = new Gerenciador();
 
@@ -19,7 +18,7 @@ public class Main {
             System.out.println("1 - Cadastrar nova Tarefa");
             System.out.println("2 - Alterar uma Tarefa");
             System.out.println("3 - Excluir uma Tarefa");
-            System.out.println("4 - Listar de Tarefa");
+            System.out.println("4 - Listas de Tarefas");
             System.out.println("5 - Buscar uma Tarefa pelo identificador");
             System.out.println("6 - Listar apenas as Tarefas pendentes");
             System.out.println("7 - Exibir um resumo com a quantidade de tarefas por status");
@@ -47,10 +46,7 @@ public class Main {
                     System.out.println("Descrição : ");
                     String descricao = scanner.nextLine();
 
-                    System.out.println("Status : ");
-                    String status = scanner.nextLine();
-
-                    gerenciador.cadastro(titulo, descricao, status);
+                    gerenciador.cadastro(titulo, descricao);
                     Ferramenta.pause(scanner);
                     break;
                 case 2 :
@@ -63,11 +59,14 @@ public class Main {
                     break;
 
                 case 4 :
-                    System.out.println("4");
+                    System.out.println("- - - - - - - - Lista de Tarefas - - - - - - - -");
+                    gerenciador.Listar_Tarefas();
                     Ferramenta.pause(scanner);
                     break;
                 case 5 :
-                    System.out.println("5");
+                    System.out.println("Vamos procurar a tarefa pelo identificador");
+                    System.out.println("Digite o ID :");
+                    gerenciador.buscarTarefaPorID(scanner.nextInt());
                     Ferramenta.pause(scanner);
                     break;
                 case 6 :

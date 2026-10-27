@@ -4,14 +4,13 @@ public class Tarefa{
     private int id;
     private String titulo;
     private String descricao;
-    private String status;
+    private StatusTarefa status = StatusTarefa.PENDENTE;
     private LocalDate data = LocalDate.now();
 
-    public Tarefa(int id, String titulo, String descricao, String status){
+    public Tarefa(int id, String titulo, String descricao){
         this.id = id;
         this.titulo = titulo;
         this.descricao = descricao;
-        this.status = status;
     }
 
     public int getId(){
@@ -23,7 +22,7 @@ public class Tarefa{
     public String getDescricao(){
         return descricao;
     }
-    public String getStatus(){
+    public StatusTarefa getStatus(){
         return status;
     }
     public LocalDate getData(){
