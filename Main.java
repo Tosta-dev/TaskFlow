@@ -39,34 +39,29 @@ public class Main {
 
             switch(resposta) {
                 case 1:
-                    System.out.println("Vamos cadastrar uma nova Tarefa");
-                    System.out.println("Titulo : ");
-                    String titulo = scanner.nextLine();
-
-                    System.out.println("Descrição : ");
-                    String descricao = scanner.nextLine();
-
-                    gerenciador.cadastro(titulo, descricao);
+                    System.out.println("- - - - - - - - Cadastrar Tarefa - - - - - - - -");
+                    gerenciador.cadastro(scanner);
                     Ferramenta.pause(scanner);
                     break;
                 case 2 :
-                    System.out.println("2");
+                    System.out.println("- - - - - - - - Tarefa - - - - - - - -");
+                    gerenciador.alterarTarefa(scanner);
                     Ferramenta.pause(scanner);
                     break;
                 case 3 :
-                    System.out.println("3");
+                    System.out.println("- - - - - - - - Excluir Tarefa - - - - - - - -");
+                    gerenciador.excluirTarefa(scanner);
                     Ferramenta.pause(scanner);
                     break;
 
                 case 4 :
                     System.out.println("- - - - - - - - Lista de Tarefas - - - - - - - -");
-                    gerenciador.Listar_Tarefas();
+                    gerenciador.listar_Tarefas();
                     Ferramenta.pause(scanner);
                     break;
                 case 5 :
-                    System.out.println("Vamos procurar a tarefa pelo identificador");
-                    System.out.println("Digite o ID :");
-                    gerenciador.buscarTarefaPorID(scanner.nextInt());
+                    System.out.println("- - - - - - - - Buscar Tarefa - - - - - - - -");
+                    gerenciador.buscarTarefaPorID(scanner);
                     Ferramenta.pause(scanner);
                     break;
                 case 6 :

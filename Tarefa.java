@@ -28,4 +28,14 @@ public class Tarefa{
     public LocalDate getData(){
         return data;
     }
+
+    public void setTitulo(String titulo){
+        this.titulo = titulo;
+    }
+    public void setDescricao(String descricao){
+        this.descricao = descricao;
+    }
+    public void setStatus(StatusTarefa status){
+        this.status = status;
+    }
 }
