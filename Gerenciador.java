@@ -64,10 +64,10 @@ public class Gerenciador {
                                 break;
                             case 3:
                                 scanner.nextLine();
-                                System.out.println("Vamos alterar o Status");
-                                System.out.println("1 - Pendente");
-                                System.out.println("2 - Em andamento");
-                                System.out.println("3 - Concluida");
+                                System.out.println("Novo Status :");
+                                System.out.println("[1] - Pendente");
+                                System.out.println("[2] - Em andamento");
+                                System.out.println("[3] - Concluida");
                                 switch (scanner.nextInt()) {
                                     case 1:
                                         local_tarefa.setStatus(StatusTarefa.PENDENTE);
@@ -153,5 +153,48 @@ public class Gerenciador {
                 return;
             }
         } System.out.println("Valor do Id não encontrado, tente novamente ...");
+    }
+    public void listPendente(){
+        if (tarefas.isEmpty()){
+            System.out.println("Lista de tarefas vazia");
+            return;
+        } boolean encontrouPendente = false;
+        for(int i = 0; i < tarefas.size(); i++){
+            Tarefa local_tarefa = tarefas.get(i);
+            if(local_tarefa.getStatus() == StatusTarefa.PENDENTE ){
+                System.out.println("Titulo : " + local_tarefa.getTitulo());
+                System.out.println("Descrição : " + local_tarefa.getDescricao());
+                System.out.println("ID :" + local_tarefa.getId());
+                System.out.println("Status : " + local_tarefa.getStatus());
+                System.out.println("Data : " + local_tarefa.getData());
+                System.out.println("- - - - - - - - - - - - - - - -");
+                encontrouPendente = true;
+            }
+        } if (!encontrouPendente){
+            System.out.println("A Lista de tarefas não possui tarefas pendentes!");
+        }
+    }
+    public void tarefaPorStatus(){
+        if (tarefas.isEmpty()){
+            System.out.println("Lista de tarefas vazia");
+            return;
+        } int tarefasPendentes = 0;
+        int tarefasEmAndamento = 0;
+        int tarefasConcluidas = 0;
+        for(int i = 0; i < tarefas.size(); i++) {
+            Tarefa local_tarefa = tarefas.get(i);
+            if(local_tarefa.getStatus() == StatusTarefa.EM_ANDAMENTO){
+                tarefasEmAndamento++;
+            } else if (local_tarefa.getStatus() == StatusTarefa.CONCLUIDA){
+                tarefasConcluidas++;
+            } else {
+                tarefasPendentes++;
+            }
+        }
+        int totalTarefas = tarefasEmAndamento + tarefasConcluidas + tarefasPendentes;
+        System.out.println("Total Tarefas : "+ totalTarefas);
+        System.out.println("Tarefas Pendentes :" + tarefasPendentes);
+        System.out.println("Tarefas Em andamento : "+  tarefasEmAndamento);
+        System.out.println("Tarefas Concluida : "+  tarefasConcluidas);
     }
 }

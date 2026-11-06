@@ -15,14 +15,14 @@ public class Main {
 
         while(true) {
             System.out.println("- - - - - - - - - Menu - - - - - - - - -");
-            System.out.println("1 - Cadastrar nova Tarefa");
-            System.out.println("2 - Alterar uma Tarefa");
-            System.out.println("3 - Excluir uma Tarefa");
-            System.out.println("4 - Listas de Tarefas");
-            System.out.println("5 - Buscar uma Tarefa pelo identificador");
-            System.out.println("6 - Listar apenas as Tarefas pendentes");
-            System.out.println("7 - Exibir um resumo com a quantidade de tarefas por status");
-            System.out.println("8 - Sair ");
+            System.out.println("[1] - Cadastrar nova Tarefa");
+            System.out.println("[2] - Alterar uma Tarefa");
+            System.out.println("[3] - Excluir uma Tarefa");
+            System.out.println("[4] - Listas de Tarefas");
+            System.out.println("[5] - Buscar uma Tarefa pelo identificador");
+            System.out.println("[6] - Listar apenas as Tarefas pendentes");
+            System.out.println("[7] - Exibir um resumo com a quantidade de tarefas por status");
+            System.out.println("[8] - Sair ");
             System.out.println("- - - - - - - - - - - - - - - - - - - - - -");
             System.out.println("Digite a sua resposta de acordo com as opções acima ?");
 
@@ -65,11 +65,13 @@ public class Main {
                     Ferramenta.pause(scanner);
                     break;
                 case 6 :
-                    System.out.println("6");
+                    System.out.println("- - - - - - - - Tarefas Pendentes - - - - - - - -");
+                    gerenciador.listPendente();
                     Ferramenta.pause(scanner);
                     break;
                 case 7 :
-                    System.out.println("7");
+                    System.out.println("- - - - - - - - Status das Tarefas - - - - - - - -");
+                    gerenciador.tarefaPorStatus();
                     Ferramenta.pause(scanner);
                     break;
                 case 8 :
